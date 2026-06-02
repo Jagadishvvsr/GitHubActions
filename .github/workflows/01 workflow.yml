@@ -1,1 +1,35 @@
 name: first-gitworkflow
+
+on:
+    workflow_dispatch
+
+jobs:
+    say-hello:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo "Hello from Github workflow"
+
+    say-hello-python:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: print("Hello from Github Actions, python shell)
+              shell: python
+            - run: echo "Hello Again"
+            
+    say-hello-from-priv:
+        runs-on: ubuntu-24.04
+        needs:
+            - say-hello
+            - say-hello-python
+        steps:
+            - uses: actions/hello-world-javascript-action
+              with:
+                who-to-greet: "Jagadish"
+    
+    fourth-job:
+        runs-on: ubuntu-24.04
+        needs:
+            - say-hello-from-priv
+        steps:
+            - run: echo "Final Job completed"
+
