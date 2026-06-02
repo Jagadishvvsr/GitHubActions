@@ -12,7 +12,7 @@ jobs:
     say-hello-python:
         runs-on: ubuntu-24.04
         steps:
-            - run: print("Hello from Github Actions, python shell)
+            - run: print("Hello from Github Actions, python shell")
               shell: python
             - run: echo "Hello Again"
             
