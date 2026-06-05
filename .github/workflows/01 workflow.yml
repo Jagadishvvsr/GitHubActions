@@ -1,35 +1,35 @@
-name: first-gitworkflow
+# name: first-gitworkflow
 
-on:
-    workflow_dispatch
+# on:
+#     workflow_dispatch
 
-jobs:
-    say-hello:
-        runs-on: ubuntu-24.04
-        steps:
-            - run: echo "Hello from Github workflow"
+# jobs:
+#     say-hello:
+#         runs-on: ubuntu-24.04
+#         steps:
+#             - run: echo "Hello from Github workflow"
 
-    say-hello-python:
-        runs-on: ubuntu-24.04
-        steps:
-            - run: print("Hello from Github Actions, python shell")
-              shell: python
-            - run: echo "Hello Again"
+#     say-hello-python:
+#         runs-on: ubuntu-24.04
+#         steps:
+#             - run: print("Hello from Github Actions, python shell")
+#               shell: python
+#             - run: echo "Hello Again"
             
-    say-hello-from-priv:
-        runs-on: ubuntu-24.04
-        needs:
-            - say-hello
-            - say-hello-python
-        steps:
-            - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
-              with:
-                who-to-greet: "Jagadish"
+#     say-hello-from-priv:
+#         runs-on: ubuntu-24.04
+#         needs:
+#             - say-hello
+#             - say-hello-python
+#         steps:
+#             - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
+#               with:
+#                 who-to-greet: "Jagadish"
     
-    fourth-job:
-        runs-on: ubuntu-24.04
-        needs:
-            - say-hello-from-priv
-        steps:
-            - run: echo "Final Job completed"
+#     fourth-job:
+#         runs-on: ubuntu-24.04
+#         needs:
+#             - say-hello-from-priv
+#         steps:
+#             - run: echo "Final Job completed"
 
