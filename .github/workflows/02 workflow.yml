@@ -2,11 +2,15 @@ name: run-on-label
 run-name: on-label-creation
 on: 
     label:
-            types:
-                - created
-    push:
-        branches:   
-            - main
+            types: 
+            - created
+
+    pull_request:
+        types:
+            - labeled
+    # push:
+    #     branches:   
+    #         - main
 jobs:
     on-label:
       runs-on: ubuntu-latest
