@@ -1,6 +1,6 @@
 name: learn-guthub-workflow
 run-name: ${{github.actor}} is learning github-actions
-on: [push]
+# on: [push]
 jobs:
     first-run:
         runs-on: ubuntu-latest
