@@ -2,8 +2,8 @@ name: if-condition-on-step
 run-name: if-condition-step
 on: 
  push:
-    branches:
-        - second
+    # branches:
+    #     - second
     paths:
         - 'test/test.txt'
 jobs:
