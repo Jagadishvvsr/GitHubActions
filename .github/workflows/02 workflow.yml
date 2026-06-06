@@ -16,7 +16,7 @@ on:
 jobs:
     on-label:
       runs-on: ubuntu-latest
-      if: ${{ github.event.label.name == 'bug' }}
+    #   if: ${{ github.event.label.name == 'bug' }}
       steps:
          
         - run: echo "on label creation, this ran"
