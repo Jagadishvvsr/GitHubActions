@@ -11,4 +11,4 @@ jobs:
     on-label:
       runs-on: ubuntu-latest
       steps:
-        - run: "on label creation, this ran"
+        - run: echo "on label creation, this ran"
