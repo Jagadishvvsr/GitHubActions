@@ -1,0 +1,17 @@
+name: if-condition-on-step
+run-name: if-condition-step
+on: 
+ push:
+    branches:
+        - second
+    paths:
+        - 'test/test.txt'
+jobs:
+   ifcond:
+     runs-on: ubuntu-latest
+     steps:
+        # - name: Run if condition check on step
+        #   if: github.event.push.paths != 'test/test.txt'
+        #   run: echo "this passed because the path is not test/test.txt'
+        - name: for all else, run this step
+          run: echo "for the push to second on path test/test.txt, this ran"
