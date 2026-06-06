@@ -16,3 +16,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: echo "on label creation, this ran"
+      
+        - run: echo "${{ github.event_name }}"
+        - run: echo '${{ toJson(github.event) }}'
