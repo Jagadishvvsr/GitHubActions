@@ -1,35 +1,17 @@
-# name: first-gitworkflow
-
-# on:
-#     workflow_dispatch
-
-# jobs:
-#     say-hello:
-#         runs-on: ubuntu-24.04
-#         steps:
-#             - run: echo "Hello from Github workflow"
-
-#     say-hello-python:
-#         runs-on: ubuntu-24.04
-#         steps:
-#             - run: print("Hello from Github Actions, python shell")
-#               shell: python
-#             - run: echo "Hello Again"
-            
-#     say-hello-from-priv:
-#         runs-on: ubuntu-24.04
-#         needs:
-#             - say-hello
-#             - say-hello-python
-#         steps:
-#             - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
-#               with:
-#                 who-to-greet: "Jagadish"
-    
-#     fourth-job:
-#         runs-on: ubuntu-24.04
-#         needs:
-#             - say-hello-from-priv
-#         steps:
-#             - run: echo "Final Job completed"
-
+name: learn-guthub-workflow
+run-name: ${{github.actor}} is learning github-actions
+on: [push]
+jobs:
+    first-run:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+            - uses: actions/setup-node@v6
+              with: 
+                node-version: '24'
+            - run: npm install -g bats
+            - run: bats -v
+    second-job:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello from second job"
