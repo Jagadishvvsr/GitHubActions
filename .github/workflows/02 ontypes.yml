@@ -1,0 +1,11 @@
+name: 02-workflow
+run-name: "checking types on trigger"
+on: 
+ push:
+    branches:
+        - second
+jobs:
+    on-types:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "on push to second branch, this ran"
