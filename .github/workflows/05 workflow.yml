@@ -1,0 +1,30 @@
+name: outputs
+on:
+    workflow_dispatch:
+jobs:
+    producer:
+        runs-on: ubuntu-latest
+        outputs:
+            output1: ${{  steps.creator.outputs.name }}
+        steps:
+            - name: generator and verify
+              id: creator
+              run: |
+               foo="Jagadish"
+               echo "name=$foo" >> "$GITHUB_OUTPUT"
+
+               echo "NAME=$foo" >> "$GITHUB_ENV"
+            - name: inspect output and variable
+              run: |
+                echo "FOO is : $NAME"
+                echo "FOO is (through outputs): ${{ steps.creator.outputs.name }}"
+    consumer:
+        runs-on: ubuntu-latest
+        steps:
+            - name: consume output of previous job
+              run: |
+                    echo "FOO is: ${{ job.producer.outputs.output1 }}"
+                    echo "FOO is: $NAME"
+            
+
+
