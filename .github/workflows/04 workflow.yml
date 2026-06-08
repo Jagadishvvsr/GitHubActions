@@ -1,0 +1,36 @@
+name: environment-variables
+on:
+    workflow_dispatch:
+env:
+    WORKFLOW_VAR: "IAM WORKFLOW SCOPED"
+jobs:
+    workflow-scoped:
+        runs-on: ubuntu-latest
+        env: 
+            JOB_VAR: "job-scoped"
+        steps:
+            - name: step-scoped
+              env:
+                STEP_VAR: "step_scoped"
+              run: |
+                    echo "workflow scoped var: $WORKFLOW_VAR"
+                    echo "step scoped var: $STEP_VAR"
+            - name: second-scoped
+              env:
+                SECOND_VAR: "second-scoped"
+              run: |
+                    echo "workflow scoped var: $WORKFLOW_VAR"
+                    echo "step scoped var: $STEP_VAR"
+                    echo "second scoped var: $SECOND_VAR"
+            - name: inspect-scope
+              run: |
+                echo "second scoped var: $SECOND_VAR"
+    job-second:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checking vars
+              run: |
+                echo "workflow scoped var: $WORKFLOW_VAR"
+                echo "step scoped var: $STEP_VAR"
+                echo "second scoped var: $SECOND_VAR"
+            
