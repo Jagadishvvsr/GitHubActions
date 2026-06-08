@@ -1,9 +1,10 @@
 name: 02-workflow
 run-name: "checking types on trigger"
 on: 
- push:
-    branches:
-        - second
+#  push:
+#     branches:
+#         - second
+    workflow_dispatch:
 jobs:
     on-types:
         runs-on: ubuntu-latest

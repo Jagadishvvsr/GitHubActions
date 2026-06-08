@@ -1,10 +1,11 @@
 name: if-condition-on-step
 run-name: if-condition-step
 on: 
- push:
-    branches:
-        - 'release/*'
-        - '!release/prod'
+#  push:
+#     branches:
+#         - 'release/*'
+#         - '!release/prod'
+  workflow_dispatch:
 
    #  paths:
    #      - 'test/test.txt'
