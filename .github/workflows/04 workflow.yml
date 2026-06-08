@@ -34,5 +34,5 @@ jobs:
                 echo "step scoped var: $STEP_VAR"
                 echo "second scoped var: $SECOND_VAR"
                 echo "=== from repo env ==="
-                echo "DEV_DB_USERNAME"
+                echo "$DEV_DB_USERNAME"
             
