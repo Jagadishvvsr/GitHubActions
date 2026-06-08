@@ -17,7 +17,8 @@ jobs:
         #   run: echo "this passed because the path is not test/test.txt'
         - name: for all else, run this step
           run: echo "for the push to second on path test/test.txt, this ran"
+        
         - name: Dump full event
           run: |
            echo "== $GITHUB_EVENT_NAME paylaod =="
-           cat $GITHUB_EVENT_PATH"
+           cat "$GITHUB_EVENT_PATH"
