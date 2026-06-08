@@ -2,10 +2,12 @@ name: if-condition-on-step
 run-name: if-condition-step
 on: 
  push:
-    # branches:
-    #     - second
-    paths:
-        - 'test/test.txt'
+    branches:
+        - 'release/*'
+        - '!release/prod'
+
+   #  paths:
+   #      - 'test/test.txt'
 jobs:
    ifcond:
      runs-on: ubuntu-latest
