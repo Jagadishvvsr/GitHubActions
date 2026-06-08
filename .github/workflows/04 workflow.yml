@@ -27,6 +27,7 @@ jobs:
                 echo "second scoped var: $SECOND_VAR"
     job-second:
         runs-on: ubuntu-latest
+        environment: Devlopment-environment
         steps:
             - name: checking vars
               run: |
