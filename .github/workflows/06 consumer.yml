@@ -3,4 +3,4 @@ on:
     workflow_dispatch:
 jobs:
     consumer:
-        uses: jagadishvvsr/GitHubActions/.github/workflows/ 05 workflow.yml@release/dev
+        uses: jagadishvvsr/GitHubActions/.github/workflows/05-workflow.yml@release/dev
