@@ -5,7 +5,7 @@ env:
     WORKFLOW_VAR: "IAM WORKFLOW SCOPED"
 jobs:
     workflow-scoped:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         env: 
             JOB_VAR: "job-scoped"
         steps:
