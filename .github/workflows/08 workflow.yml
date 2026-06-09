@@ -1,0 +1,29 @@
+name: artifact
+on:
+    workflow_dispatch:
+jobs:
+    artifact-generator:
+        runs-on: ubuntu-latest
+        steps:
+            - name: artificate-gen
+              run: |
+                echo "this is an artifact" > artifact.txt
+            
+            - name: upload the artificat
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                name: example-artifact
+                path: artifact.txt
+                
+    artifact-consumer:
+         runs-on: ubuntu-latest
+         name: consume-artifact
+         steps:
+            - name: download-artifact
+              uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+              with:
+                name: example-artifact
+            
+            - name: read-artifact
+              run: |
+                cat artifact.txt
