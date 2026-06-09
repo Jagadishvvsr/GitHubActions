@@ -1,11 +1,16 @@
 name: outputs
 on:
     workflow_dispatch:
+
+    workflow_call:
+        outputs:
+            final_output:
+                value: ${{ jobs.producer.outputs.output1 }}
 jobs:
     producer:
         runs-on: ubuntu-latest
         outputs:
-            output1: ${{  steps.creator.outputs.name }}
+            output1: ${{  steps.creator.outputs.name }} 
         steps:
             - name: generator and verify
               id: creator
@@ -20,10 +25,11 @@ jobs:
                 echo "FOO is (through outputs): ${{ steps.creator.outputs.name }}"
     consumer:
         runs-on: ubuntu-latest
+        needs: producer 
         steps:
             - name: consume output of previous job
               run: |
-                    echo "FOO is: ${{ job.producer.outputs.output1 }}"
+                    echo "FOO is: ${{ needs.producer.outputs.output1 }}"
                     echo "FOO is: $NAME"
             
 
