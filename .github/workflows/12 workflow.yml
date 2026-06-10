@@ -16,7 +16,7 @@ jobs:
           needs: matrix-producer
           strategy:
             matrix:
-                names: ${{ fromJson(needs.matrix-producer.outputs.versions) }}
+                names: ${{ fromJSON(needs.matrix-producer.outputs.versions) }}
           steps:
             - name: consume
               env:
