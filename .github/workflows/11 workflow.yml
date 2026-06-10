@@ -19,5 +19,5 @@ jobs:
               run: ls && pwd && whoami
             - name: copy minimal node to s3
               run: |
-                aws s3 cp minimalproject s3://github-jagadishvvsr.artifacts
+                 aws s3 sync minimalproject s3://github-jagadishvvsr.artifacts/minimalproject
         
