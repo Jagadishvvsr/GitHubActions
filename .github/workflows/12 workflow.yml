@@ -1,0 +1,37 @@
+name: matrix
+on:
+    workflow_dispatch
+jobs:
+    matrix-producer: 
+        runs-on: ubuntu-latest
+        outputs:
+            versions: ${{ steps.gen-mat.outputs.names}}
+        steps:
+            - name: matrix generator
+              id: gen-mat
+              run: echo 'names = ["venkata", "sita", "Rama", "jagadish"]' >> "GITHUB_OUTPUT"
+            
+    producer-artifact:
+          runs-on: ubuntu-latest
+          needs: matrix-producer
+          strategy:
+            matrix:
+                names: ${{ fromJson(needs.matrix-producer.outputs.versions) }}
+          steps:
+            - name: consume
+              env:
+                names: ${{ matrix.names }}
+              run: |
+                echo "$names" > name
+            - name: produce artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: ${{ matrix.names }}
+                path: name
+                        
+
+
+
+
+            
+                
