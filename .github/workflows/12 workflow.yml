@@ -9,7 +9,7 @@ jobs:
         steps:
             - name: matrix generator
               id: gen-mat
-              run: echo 'names=["venkata", "sita", "Rama", "jagadish"]' >> "GITHUB_OUTPUT"
+              run: echo 'names=["venkata", "sita", "Rama", "jagadish"]' >> "$GITHUB_OUTPUT"
             
     producer-artifact:
           runs-on: ubuntu-latest
