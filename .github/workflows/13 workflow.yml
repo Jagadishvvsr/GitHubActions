@@ -1,6 +1,14 @@
 name: matrix-mit-include
 on:
     workflow_dispatch
+
+    # push:
+    #     - release/dev
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
     setup:
         runs-on: ubuntu-latest
@@ -18,8 +26,17 @@ jobs:
                 include:
                     - version: 14
                       experimental: true
+        timeout-minutes: 5
+
         steps:
             - name: print the worflow os
               run: echo "${{ matrix.os }}"
             - name: print worflow version
               run: echo "${{ matrix.version }}"
+
+    sleep-job:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Sleep (to give time to be cancelled)
+              run: sleep 1000
+              timeout-minutes: 2
