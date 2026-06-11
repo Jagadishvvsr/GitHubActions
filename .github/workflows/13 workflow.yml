@@ -2,10 +2,13 @@ name: matrix-mit-include
 on:
     workflow_dispatch
 
+    # push:
+    #     - release/dev
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
     setup:
         runs-on: ubuntu-latest

@@ -23,8 +23,8 @@ jobs:
                 names: ${{ matrix.names }}
               run: |
                 echo "${{ env.names }}"
-              run: |
                 echo "$names" > name
+                
             - name: produce artifact
               uses: actions/upload-artifact@v4
               with:
