@@ -18,8 +18,17 @@ jobs:
                 include:
                     - version: 14
                       experimental: true
+        timeout-minutes: 5
+
         steps:
             - name: print the worflow os
               run: echo "${{ matrix.os }}"
             - name: print worflow version
               run: echo "${{ matrix.version }}"
+
+    sleep-job:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Sleep (to give time to be cancelled)
+              run: sleep 100
+              timeout-minutes: 2
