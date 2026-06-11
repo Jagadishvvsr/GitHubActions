@@ -9,18 +9,20 @@ jobs:
         steps:
             - name: matrix generator
               id: gen-mat
-              run: echo 'names = ["venkata", "sita", "Rama", "jagadish"]' >> "GITHUB_OUTPUT"
+              run: echo 'names=["venkata", "sita", "Rama", "jagadish"]' >> "$GITHUB_OUTPUT"
             
     producer-artifact:
           runs-on: ubuntu-latest
           needs: matrix-producer
           strategy:
             matrix:
-                names: ${{ fromJson(needs.matrix-producer.outputs.versions) }}
+                names: ${{ fromJSON(needs.matrix-producer.outputs.versions) }}
           steps:
             - name: consume
               env:
                 names: ${{ matrix.names }}
+              run: |
+                echo "${{ env.names }}"
               run: |
                 echo "$names" > name
             - name: produce artifact
