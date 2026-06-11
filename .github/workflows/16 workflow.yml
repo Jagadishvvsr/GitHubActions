@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - id: foo
-        uses: Jagadishvvsr/composite-actions@17f04e4ad566cfda36058610b1cfe85477eda73b
+        uses: Jagadishvvsr/composite-actions@7ab2d1a3bdc9b23d864f667bdb573aa52e5880bc
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
