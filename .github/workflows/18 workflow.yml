@@ -1,0 +1,11 @@
+name: reusable-caller
+on: 
+    workflow_dispatch:
+jobs:
+    call-resubale-workflow:
+        uses: ./.github/workflows/17-workflow.yml
+        name: calling the reusable workflow
+        with:
+            environment: prod
+            foo: Valluri
+        secrets: inherit
