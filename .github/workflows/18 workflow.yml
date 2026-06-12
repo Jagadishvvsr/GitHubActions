@@ -10,7 +10,7 @@ jobs:
             foo: Valluri
         secrets: inherit
     
-    from-show:
+    from-sha:
         uses: jagadishvvsr/GitHubActions/.github/workflows/17-workflow.yml@b71ebded0eb8f0ccc91da77ee89c8770502b728c
         name: from sha
         with:
@@ -18,3 +18,4 @@ jobs:
             foo: Sita Ram
         secrets:
             EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+        
