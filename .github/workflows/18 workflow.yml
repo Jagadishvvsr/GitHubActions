@@ -14,7 +14,8 @@ jobs:
         uses: jagadishvvsr/GitHubActions/.github/workflows/17-workflow.yml@b71ebded0eb8f0ccc91da77ee89c8770502b728c
         name: from sha
         with:
-            environment: prod
+            environment: stage
             foo: Sita Ram
         secrets:
             EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+        
