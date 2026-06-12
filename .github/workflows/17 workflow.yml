@@ -1,5 +1,7 @@
 name: reusable-source
 on:
+    workflow_dispatch:
+        
     workflow_call:
     
         inputs:
